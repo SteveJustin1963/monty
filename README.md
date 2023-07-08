@@ -29,7 +29,7 @@ Examples:
 > 1 .
 1
 
-> 'a' /h .
+> 'a' /h.
 #61
 
 > /f .
@@ -231,10 +231,10 @@ Examples:
 
 ```
  > 'A' 1 - /ad .
-NUL
+0
 
  > 'z' 1 + /ad .
-NUL
+0
 ```
 
 ### 16. String Conversion
@@ -247,7 +247,7 @@ Examples:
  > #4321 /h. /c/vB 0% .
 #23
 
- > -1. /c/vB 0% .
+ > -1. /c/vB 0% /h.
 #2D
 ```
 
@@ -278,19 +278,19 @@ The colon operator `:` appears to be used in generating a lookup table for use i
 Examples:
 
 ```
- > : -2% .
+ > : -2% /h.
 #0000
 
- > :a -1% .
+ > :a -1% /h.
 #0001
 
- > :a: -1% .
+ > :a: -1% /h.
 #0001
 
- > :a:b -1% .
+ > :a:b -1% /h.
 #0102
 
- > ::b -1% .
+ > ::b -1% /h.
 #0101
 ```
 
@@ -321,10 +321,10 @@ Single quotes `'` seem to be used to get the ASCII value of a character.
 Examples:
 
 ```
- > 'a' .
+ > 'a' /h.
 #61
 
- > '\\'' .
+ > '\\'' /h.
 #27
 ```
 
@@ -335,16 +335,16 @@ The language uses special characters like `#`, `%`, `^`, and `/` to perform spec
 Examples:
 
 ```
- > #10 .
+ > #10 /h.
 #10
 
- > #FF .
+ > #FF /h.
 #FF
 
  > :a{2}; x= 1 x^ .
 2
 
- > 123. /c/vB 1% .
+ > 123. /c/vB 1% /h.
 #32
 ```
 
