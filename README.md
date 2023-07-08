@@ -9,7 +9,9 @@ https://github.com/jhlagado/monty/tree/main
 
 ## Introduction
 
-This guide covers an unnamed language that includes a range of commands and operators. These commands provide functionality for variable manipulation, logical operations, mathematical computations, bitwise operations, conditional execution, string manipulation, and more.
+This guide covers the range of commands and operators. These commands provide functionality for variable manipulation, logical operations, mathematical computations, bitwise operations, conditional execution, string manipulation, and more.
+Between the quotes `"` is the input and after the comma `,` is the result placed on the stack whichc an be shown with `.`.
+
 
 ## Commands and Operators
 
