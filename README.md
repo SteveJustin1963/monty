@@ -1,11 +1,11 @@
-# monty
+# MONTY
 https://github.com/jhlagado/monty/tree/main
 
 
 
 ## manual
 
-# User Guide for Programming Language
+# User Guide for MONTY Programming Language
 
 ## Introduction
 
@@ -23,92 +23,92 @@ Values in this language can be represented in several forms:
 - Boolean values: `/f`, `/t`
 
 Examples:
-```c
-    test "1", 1
-    test "'a'", $61
-    test "/f", false
-```
+  ``` 
+      "1", 1
+      "'a'", $61
+      "/f", false
+  ```
 
 ### 2. Variable Assignment
 
 Assigning a variable is done using `=` operator. 
 
 Example:
-```c
-    test "1a= a", 1
-```
+  ``` 
+      "1a= a", 1
+  ```
 
 ### 3. Arithmetic Operations
 
 Arithmetic operations include addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`). The language also supports modulus (`%`) and negative `_`.
 
 Examples:
-```c
-    test "1 2 +", 3
-    test "7 3 / _", 1
-    test "10 1 >>", 5
-```
+  ``` 
+      "1 2 +", 3
+      "7 3 / _", 1
+      "10 1 >>", 5
+  ```
 
 ### 4. Logical Operations
 
 Logical operations include `&` (AND), `|` (OR), `==` (equality), `<` (less than), `>` (greater than), `<=` (less than or equal to), `>=` (greater than or equal to).
 
 Examples:
-```c
-    test "3 5 &", 1
-    test "2 3 ==", FALSE
-    test "2 2 <=", TRUE
-```
+  ``` 
+      "3 5 &", 1
+      "2 3 ==", FALSE
+      "2 2 <=", TRUE
+  ```
 
 ### 5. Bitwise Operations
 
 Bitwise operations include `<<` (bitwise left shift), `>>` (bitwise right shift).
 
 Examples:
-```c
-    test "3 1 <<", 6
-    test "10 1 >>", 5
-```
+  ``` 
+      "3 1 <<", 6
+      "10 1 >>", 5
+  ```
 
 ### 6. Conditional Statements
 
 Conditional execution is represented using `{}` brackets and the `?` or `??` operators.
 
 Examples:
-```c
-    test "5 /f{10} ?", 5
-    test "1 /t{10}{20} ?? +", 11
-```
+  ``` 
+      "5 /f{10} ?", 5
+      "1 /t{10}{20} ?? +", 11
+  ```
 
 ### 7. String Manipulation
 
 The language seems to support basic string manipulations, including string length (`/s`), string content (`/c`), string hex representation (`/h`), and ASCII decimal representation (`/ad`).
 
 Examples:
-```c
-    test "[10 20 30 40] /s", 4
-    test "'A' /ad", 65
-    test "#4321 /h. /c/vB 0%", $23
-```
+  ``` 
+      "[10 20 30 40] /s", 4
+      "'A' /ad", 65
+      "#4321 /h. /c/vB 0%", $23
+  ```
 
 ### 8. List Operations
 
 Lists can be represented using `[]` brackets, and elements can be accessed using the `%` operator.
 
 Examples:
-```c
-    test "[10 20 30] 1%", 20
-    test "1 10 20 :iab{[{$a}{$b}] $i%^};^", 20
-```
+  ``` 
+      "[10 20 30] 1%", 20
+      "1 10 20 :iab{[{$a}{$b}] $i%^};^", 20
+  ```
 
 ### 9. Loops and Iteration
 
 The language seems to include a basic looping structure, with an iterator variable `i`.
 
 Example:
-```c
-    test "3i= ( i i-- i/br )^ + +", 6
-```
+  ``` 
+      "3i= ( i i-- i/br )^ + +", 6
+  ```
 
 
 ### 10. Increment and Decrement
@@ -116,70 +116,70 @@ Example:
 The increment (`++`) and decrement (`--`) operations can be applied to variables. They increase or decrease the value of the variable by 1, respectively.
 
 Examples:
-```c
-    test "1a= a++ a", 2
-    test "3a= a-- a", 2
-```
+ ``` 
+      "1a= a++ a", 2
+      "3a= a-- a", 2
+  ```
 
 ### 11. Exclusive OR
 
 The `/x` operator seems to perform an exclusive OR (XOR) operation on two values.
 
 Examples:
-```c
-    test "3 5 /x", 6
-    test "3a= 5 a/x a= a", 6
-```
+ ``` 
+      "3 5 /x", 6
+      "3a= 5 a/x a= a", 6
+  ```
 
 ### 12. Nested and Conditional Assignments
 
 The `:var{}` construct seems to be a conditional assignment operator that only assigns a new value to a variable if the condition within the brackets is met.
 
 Examples:
-```c
-    test "5 :a{$a};^", 5
-    test ":ab{$b $a}; x= 10 15 x^ -", 5
-```
+ ``` 
+      "5 :a{$a};^", 5
+      ":ab{$b $a}; x= 10 15 x^ -", 5
+  ```
 
 ### 13. Array Operations
 
 The construct `1%` is used to get the element at index 1 from an array.
 
 Examples:
-```c
-    test "[10 20 30] 1%", 20
-    test "[{10}{20}{30}] 0%^ ", 10
-```
+ ``` 
+      "[10 20 30] 1%", 20
+      "[{10}{20}{30}] 0%^ ", 10
+  ```
 
 ### 14. Iteration over Arrays
 
 The language supports iterating over arrays with a loop variable `i`.
 
 Examples:
-```c
-    test "3i= ( i i-- i/br )^ + +", 6
-    test "0 j= 4 i= ( i j + j= i i-- i/br )^ j ", 10
-```
+ ``` 
+      "3i= ( i i-- i/br )^ + +", 6
+      "0 j= 4 i= ( i j + j= i i-- i/br )^ j ", 10
+  ```
 
 ### 15. Character Arithmetic
 
 The language allows for arithmetic operations on character variables, adjusting their ASCII value.
 
 Examples:
-```c
-    test "'A' 1 - /ad", NUL
-    test "'z' 1 + /ad", NUL
-```
+ ``` 
+      "'A' 1 - /ad", NUL
+      "'z' 1 + /ad", NUL
+  ```
 
 ### 16. String Conversion
 
 String conversion to hexadecimal (`/h`) and vice versa is supported, as well as conversion of a string's hexadecimal form to a byte array (`/c/vB`).
 
 Examples:
-```c
-    test "#4321 /h. /c/vB 0%", $23
-    test "-1. /c/vB 0%", $2D
-```
+ ``` 
+      "#4321 /h. /c/vB 0%", $23
+      "-1. /c/vB 0%", $2D
+  ```
 
  
 
@@ -188,71 +188,71 @@ Examples:
 The `?` operator seems to work as a conditional operator, executing the code block in braces `{}` following it if the preceding condition is true. It's often used with the `/f` (false) and `/t` (true) flags.
 
 Examples:
-```c
-    test "5 /f{10} ?", 5
-    test "5 /t{10} ? +", 15
-    test "1 /f{10}{20} ?? +", 21
-    test "1 /t{10}{20} ?? +", 11
-```
+ ``` 
+      "5 /f{10} ?", 5
+      "5 /t{10} ? +", 15
+      "1 /f{10}{20} ?? +", 21
+      "1 /t{10}{20} ?? +", 11
+  ```
 
 ### 18. Lookup Table Generation
 
 The colon operator `:` appears to be used in generating a lookup table for use in subsequent operations. When used with other operators and special characters, it seems to define complex expressions that refer to lookup tables or sequences.
 
 Examples:
-```c
-    test ": -2%", $0000
-    test ":a -1%", $0001
-    test ":a: -1%", $0001
-    test ":a:b -1%", $0102
-    test "::b -1%", $0101
-```
+ ``` 
+      ": -2%", $0000
+      ":a -1%", $0001
+      ":a: -1%", $0001
+      ":a:b -1%", $0102
+      "::b -1%", $0101
+  ```
 
 ### 19. Bitwise Operations
 
 The language also supports bitwise operations like left shift (`<<`), right shift (`>>`), AND (`&`), OR (`|`).
 
 Examples:
-```c
-    test "3 1 <<", 6
-    test "10 1 >>", 5
-    test "3 5 &", 1
-    test "3 5 |", 7
-```
+ ``` 
+      "3 1 <<", 6
+      "10 1 >>", 5
+      "3 5 &", 1
+      "3 5 |", 7
+  ```
 
 ### 20. Single Quote Character Conversion
 
 Single quotes `'` seem to be used to get the ASCII value of a character.
 
 Examples:
-```c
-    test "'a'", $61
-    test "'\\''", $27
-```
+ ``` 
+      "'a'", $61
+      "'\\''", $27
+  ```
 
 ### 21. Using Special Characters
 
 The language uses special characters like `#`, `%`, `^`, and `/` to perform specific operations. `#` seems to be a prefix for hexadecimal numbers, `%` is a modulo operation or used for indexing arrays, `^` might be a dereference or an operator to resolve an expression and `/` is used with characters to indicate special flags or operations.
 
 Examples:
-```c
-    test "#10", $10
-    test "#FF", $FF
-    test ":a{2}; x= 1 x^", 2
-    test "123. /c/vB 1%", $32
-```
+ ``` 
+      "#10", $10
+      "#FF", $FF
+      ":a{2}; x= 1 x^", 2
+      "123. /c/vB 1%", $32
+  ```
 
 ### 22. Comparison Operations
 
 Comparison operations are supported, like equal (`==`), less than (`<`), greater than (`>`), less than or equal to (`<=`), and greater than or equal to (`>=`).
 
 Examples:
-```c
-    test "2 3 ==", FALSE
-    test "3 3 ==", TRUE
-    test "1 2 <", TRUE
-    test "2 1 <", FALSE
-```
+ ``` 
+      "2 3 ==", FALSE
+      "3 3 ==", TRUE
+      "1 2 <", TRUE
+      "2 1 <", FALSE
+  ```
 
  
 
@@ -260,9 +260,9 @@ Examples:
 
 It's quite interesting to observe the loop and recursion handling within this language. For example:
 
-```c
-    test "0 j= 4 i= ( i j + j= i i-- i/br )^ j ", 10
-```
+ ``` 
+      "0 j= 4 i= ( i j + j= i i-- i/br )^ j ", 10
+  ```
 
 In this script, a loop-like behavior is implemented using decrement (`--`), branching (`/br`) and the dereference operator (`^`). The `^` operator doesn't just resolve expressions, it seems to support execution of enclosed expressions as well, serving a purpose similar to a function call in other languages.
 
@@ -272,9 +272,9 @@ The language appears to have a level of abstraction over data types. As seen fro
 
 For example:
 
-```c
-    test "1 /t{10}{20} ?? +", 11
-```
+ ``` 
+      "1 /t{10}{20} ?? +", 11
+  ```
 
 In this script, `/t` is treated as true which is then considered as `1` during the addition operation.
 
@@ -282,9 +282,9 @@ In this script, `/t` is treated as true which is then considered as `1` during t
 
 One interesting aspect of this language is that it supports position-independent code. An expression can be assigned to a variable and then executed at any position in the code. For example:
 
-```c
-    test "2 :a= 1 a^", 2
-```
+ ``` 
+      "2 :a= 1 a^", 2
+  ```
 
 In this example, `2` is assigned to the variable `a` and then the code pointed by `a` is executed later with `a^`. This makes the language flexible and versatile for scripting complex behaviors.
 
@@ -294,9 +294,9 @@ This language has a level of introspection. The `/ad` operator seems to return t
 
 Example:
 
-```c
-    test "'z' /ad", VARS + (("z"-"a")+("Z"-"A")+1)*2
-```
+ ``` 
+      "'z' /ad", VARS + (("z"-"a")+("Z"-"A")+1)*2
+  ```
 
 ### 27. Unconventional Encoding
 
@@ -304,6 +304,6 @@ The language uses a unique way of encoding data into sequences of characters and
 
 Example:
 
-```c
-    test "`A`.s /c/vB 0%", 65
-```
+ ``` 
+      "`A`.s /c/vB 0%", 65
+  ```
