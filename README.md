@@ -39,6 +39,57 @@ Monty accommodates 52 variables, ranging from A to Z and a to z. These variables
 13
 ```
 
+# User Guide for MONTY Programming Language
+
+## Introduction
+
+This guide provides a comprehensive overview of the commands and operators available in MONTY, a user-friendly Reverse Polish Notation (RPN) based programming language. MONTY aims to combine readability with familiar symbols and follows conventions from the C programming language whenever possible.
+
+## Functions and Variables
+
+MONTY allows you to define functions using the `:` operator, eliminating the need for explicit variable assignment. These functions are anonymous, meaning they don't require a specific name. However, if you know the function's address, you can execute it using the `^` operator.
+
+To define a function, use the `:` operator followed by lowercase letters (a..z) representing the function arguments. These arguments are separate from global variables and can be accessed within the function body by prefixing them with `$`.
+
+Example:
+```
+:mcx { $m $x * $c + } ; f=
+```
+
+In this example, the `mcx` function takes three arguments: `m`, `c`, and `x`. The function body multiplies `m` and `x`, then adds `c` to the result. The resulting function is stored in the variable `f`.
+
+To call a function with specific argument values, use the `^` operator:
+
+Example:
+```
+1 c 5 f^ y=
+```
+
+In this example, the values `1`, `c`, and `5` are passed as arguments to the `f` function. The result of the function is stored in the variable `y`.
+
+### Global Variables
+
+In addition to function arguments, MONTY supports the use of global variables within functions. These global variables can be accessed and modified from within the function body.
+
+### Mathematical Example
+
+Let's illustrate the usage of functions and global variables with a mathematical example of a straight line function `f(x) = mx + c`. Here, `m` represents the slope, `c` is the y-intercept, and `x` is the input.
+
+To define the function `f`, use the `:` operator and specify the arguments `m`, `c`, and `x`. Within the function body, perform the necessary calculations to determine the value of `f(x)`.
+
+```Monty
+:mcx { $m $x * $c + } ; f=
+```
+
+To calculate the value of `f(x)` for specific `m`, `c`, and `x` values, pass them as arguments to the `f` function using the `^` operator. The result is stored in a variable, such as `y`.
+
+```Monty
+1 c 5 f^ y=
+```
+
+
+
+//////////////////////////
 ### Blocks and Conditional Structures in Monty
 In Monty, blocks of code enclosed within { } are executed later with ^. For example:
 
