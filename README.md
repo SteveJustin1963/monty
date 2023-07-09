@@ -112,17 +112,113 @@ Examples:
 ### 7. String Manipulation
 
 ** NEEDS WORK **
-The language seems to support basic string manipulations. String content (`/c`), string hex representation (`/h`), and ASCII decimal representation (`/ad`).
+Strings are an important part of any programming language. In MONTY, strings are represented between double quotes `"` and characters between single quotes `'`. The language offers multiple operations to handle strings, including concatenation, indexing, conversion, comparison, and potentially more. 
+
+The language support basic string manipulations. String content (`/c`), string hex representation (`/h`), and ASCII decimal representation (`/ad`).
 
 Examples:
+```
+> 'A' /ad .
+65
+```
+This command is converting the ASCII character 'A' into its decimal ASCII value. ASCII (American Standard Code for Information Interchange) is a character encoding standard that represents text in computers and other devices that use text. Each character in the ASCII standard corresponds to a number from 0 to 127. For example, the ASCII value for 'A' is 65, which is what is being returned by the command.
+
+
+
+
+```
+> #4321 /h. /c/vB 0% .
+#23
+```
+
+- `#4321 /h.`: This operation converts the hexadecimal value `4321` into a string. Hexadecimal is a number system with a base of 16, using digits from 0 to 9 and letters from A to F to represent the values 10 to 15. The output of this operation is the string representation of the hexadecimal value `4321`.
+
+- `/c/vB`: These operations ....
+
+- `0% .`: This operation is used to index the string, . The `0%` operation is taking the first character from the string resulting from the previous operations.
+
+
+
+
+
+
+000000000000000
+ 
+
+ 
+
+ 
+
+
+
+### Supported String Operations
+
+MONTY supports a variety of string operations that are common in many programming languages, such as:
+
+- Concatenation: Joining two or more strings into one.
+- Indexing: Accessing individual characters in a string.
+- Conversion: Changing strings into other data types and vice versa.
+- Comparison: Comparing two strings to determine if they're equal.
+
+### String Concatenation
+
+You can concatenate, or combine, strings in MONTY using the `+` operator. This operation will join two or more strings into a single string.
+
+Example:
+
+```
+> "hello" "world" + .
+"helloworld"
+```
+
+### String Indexing
+
+MONTY supports accessing individual characters of a string by their position in the string. The `%` operator is used to get the character at the specified index. Remember that string indexing starts from `0`.
+
+Example:
+
+```
+> "hello" 0% .
+'h'
+```
+
+### Conversion between Strings and Other Data Types
+
+MONTY provides operations to convert strings to and from other data types. For example, the `/h` operation can convert a single character into its hexadecimal ASCII value, and the `/ad` operation converts it to the decimal ASCII value.
+
+Example:
 
 ```
 > 'A' /ad .
 65
-
-> #4321 /h. /c/vB 0% .
-#23
 ```
+
+### String Comparison
+
+String comparison in MONTY is done using the `==` operator. This will compare two strings and return `-1` if they are equal, and `0` if they are not. Note that this comparison is case-sensitive.
+
+Example:
+
+```
+> "hello" "world" == .
+0
+
+> "hello" "HELLO" == .
+0
+```
+
+### Other String Operations
+
+MONTY might support additional string operations that haven't been covered in this guide. You're encouraged to experiment with different commands to uncover more functionalities. For instance, regex operations or substring manipulations might be available, although they're not covered in the current version of this guide.
+
+Please note that these examples and functionalities are based on the observed behavior of the MONTY language and might differ based on its actual implementation. This guide should serve as a starting point for understanding and experimenting with string manipulation in MONTY.
+
+
+
+
+
+
+00000000000000000
 
 ### 8. Array Operations
 
