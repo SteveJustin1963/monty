@@ -2,7 +2,9 @@
 
 https://github.com/jhlagado/monty/tree/main
 
-## manual
+## Monty: An Intuitive and Readable Reverse Polish Notation (RPN) Language
+Monty is an ongoing project, conceptualized as a solution to overcome perceived limitations in Mint. A reverse polish notation (RPN) based language like Mint, Monty sets itself apart by prioritizing readability. Monty leverages intuitive symbols for operations, commonly following the conventions of the C programming language, which significantly enhances code comprehensibility.
+
 
 # User Guide for MONTY Programming Language
 
@@ -12,6 +14,51 @@ This guide covers the range of commands and operators. These commands provide fu
 Between the quotes `"` is the input and after the comma `,` is the result placed on the stack which an be shown with `.`.
 
 ## Commands and Operators
+
+
+### Functions 
+Commands in Monty are known as functions. Users pass values to functions by name, similar to the C programming language. For example, you can define a function a that squares a value in the following manner:
+
+```
+> :a { $a $a * } ;
+```
+This function can be stored in a variable and invoked using ^.
+
+```
+> :a { $a $a * } ; F=
+> 10 F^ .
+100
+```
+
+### Variables
+Monty accommodates 52 variables, ranging from A to Z and a to z. These variables can hold any type of values, including functions, numbers, and arrays. To assign a value to a variable, you use the = symbol.
+
+```
+> 10 x=
+> 3 x + .
+13
+```
+
+### Blocks and Conditional Structures in Monty
+In Monty, blocks of code enclosed within { } are executed later with ^. For example:
+
+```
+> { 1 2 + . }^
+3
+```
+
+Monty uses the ? symbol for conditional structures. For instance, to print "hello" if 3 is greater than 2, you can write:
+
+```
+> 3 2 > { "hello" .s } ?
+```
+Monty also supports "if..else" structures using ??:
+
+```
+> 3 2 >
+```
+
+
 
 ### 1. Values
 
