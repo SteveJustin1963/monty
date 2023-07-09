@@ -219,7 +219,8 @@ Examples:
 ### 9. Loops and Iteration
 
 ** NEEDS WORK **
-The language seems to include a basic looping structure, with an iterator variable `i`.
+
+MONTY includes a basic looping structure, which can be used with an iterator variable `i`. This allows for repetitive execution of commands, a feature essential for any programming language.
 
 Example:
 
@@ -227,6 +228,59 @@ Example:
 > 3i= ( i i-- i/br )^ + + .
 6
 ```
+
+In this example, `3i=` sets up a loop that iterates three times. The iterator variable `i` starts at 3 and decrements by 1 each time (`i--`). 
+
+The `(` and `)^` symbols denote the start and end of the loop block. The `i/br` command breaks the loop if `i` becomes zero.
+
+The `+ +` operation at the end adds the values returned from each iteration. 
+
+In this case, the loop executes three times (for `i` values of 3, 2, and 1), and the result `6` is the sum of these values.
+
+### Loops and Iteration (Advanced)
+
+In addition to basic iterations, MONTY also supports more complex operations within the loop structures. In the example below, we demonstrate the utilization of nested loops for multiplication.
+
+Example:
+
+```shell
+> 3i= ( 4j= ( i j * . j j-- j/br )^ i i-- i/br )^ .
+3 4 *
+12
+3 3 *
+9
+3 2 *
+6
+3 1 *
+3
+2 4 *
+8
+2 3 *
+6
+2 2 *
+4
+2 1 *
+2
+1 4 *
+4
+1 3 *
+3
+1 2 *
+2
+1 1 *
+1
+```
+
+In this example, `3i=` sets up an outer loop that iterates three times with `i` starting at 3 and decrementing by 1 each time (`i--`). Similarly, `4j=` sets up an inner loop that iterates four times with `j` starting at 4 and decrementing by 1 each time (`j--`).
+
+The command `i j * .` multiplies the current values of `i` and `j` and prints the product. This command is executed at each iteration of the inner loop.
+
+The `j j-- j/br` command decrements `j` and breaks the inner loop if `j` becomes zero, while the `i i-- i/br` command decrements `i` and breaks the outer loop if `i` becomes zero.
+
+This setup generates a simple multiplication table for numbers 1 to 3. For instance, when `i` is 3 and `j` is 4, the multiplication `3 4 *` returns `12`. Similarly, when `i` is 2 and `j` is 3, the multiplication `2 3 *` returns `6`, and so on.
+
+
+
 
 ### 10. Increment and Decrement
 
