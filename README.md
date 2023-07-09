@@ -116,7 +116,7 @@ Strings are an important part of any programming language. In MONTY, strings are
 
 The language support basic string manipulations. String content (`/c`), string hex representation (`/h`), and ASCII decimal representation (`/ad`).
 
-Examples:
+Example:
 ```
 > 'A' /ad .
 65
@@ -124,8 +124,7 @@ Examples:
 This command is converting the ASCII character 'A' into its decimal ASCII value. ASCII (American Standard Code for Information Interchange) is a character encoding standard that represents text in computers and other devices that use text. Each character in the ASCII standard corresponds to a number from 0 to 127. For example, the ASCII value for 'A' is 65, which is what is being returned by the command.
 
 
-
-
+Example:
 ```
 > #4321 /h. /c/vB 0% .
 #23
@@ -136,19 +135,6 @@ This command is converting the ASCII character 'A' into its decimal ASCII value.
 - `/c/vB`: These operations ....
 
 - `0% .`: This operation is used to index the string, . The `0%` operation is taking the first character from the string resulting from the previous operations.
-
-
-
-
-
-
-000000000000000
- 
-
- 
-
- 
-
 
 
 ### Supported String Operations
@@ -209,16 +195,9 @@ Example:
 
 ### Other String Operations
 
-MONTY might support additional string operations that haven't been covered in this guide. You're encouraged to experiment with different commands to uncover more functionalities. For instance, regex operations or substring manipulations might be available, although they're not covered in the current version of this guide.
-
-Please note that these examples and functionalities are based on the observed behavior of the MONTY language and might differ based on its actual implementation. This guide should serve as a starting point for understanding and experimenting with string manipulation in MONTY.
+....
 
 
-
-
-
-
-00000000000000000
 
 ### 8. Array Operations
 
