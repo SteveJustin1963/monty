@@ -600,3 +600,227 @@ Example:
  > `A`.s /c/vB 0% .
 65
 ```
+
+## Factorial of a number using recursion. 
+Factorial of a number is the product of all positive integers less than or equal to that number. In mathematical terms, the factorial of a number n is denoted as n!, where
+
+n! = n*(n-1)*(n-2)*...*3*2*1
+
+For example, the factorial of 5 is 5! = 5 * 4 * 3 * 2 * 1 = 120.
+
+Now, let's implement this in Monty:
+
+```Monty
+# This function calculates the factorial of a number recursively
+:factorial { 
+  $n 2 <  # Check if the input number is less than 2
+  { 
+    1  # If yes, return 1 as the factorial of 1 and 0 is 1
+  } 
+  { 
+    $n $n 1 - factorial^ *  # If no, return n multiplied by the factorial of (n-1)
+  } 
+  ??  # Perform if-else
+} ;
+```
+
+You can store the function in a variable, F, and call it:
+
+```Monty
+:factorial { $n 2 < { 1 } { $n $n 1 - factorial^ * } ?? } ; F=
+```
+
+Now, let's call this function with an input value of 5:
+
+```Monty
+5 F^ .
+```
+
+This should return 120.
+
+Explanation:
+
+1. The command `:factorial` defines a function named "factorial". 
+
+2. Inside the function, we have an if-else structure (denoted by `??`) that checks if the input number n (accessed by `$n`) is less than 2. 
+
+3. If it is, it returns 1. This is because the factorial of 1 and 0 is 1.
+
+4. If it's not less than 2, it calculates the factorial recursively by multiplying the number n by the factorial of n-1. It calls the factorial function recursively using `factorial^`.
+
+5. The function is stored in the variable F with `F=`.
+
+6. Finally, the function is called with an input of 5 using `5 F^ .`. 
+
+Remember, all the steps are executed in reverse Polish notation, where operators follow their operands.
+
+## Fibonacci sequence using a loop and arrays.
+
+The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1. So, the sequence goes: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so forth.
+
+```Monty
+# This function generates the Fibonacci sequence
+:fibonacci {
+  $n 2 < { [0 1] } { [0 1] $n 2 - i= ( $array $i 1% $array $i 2% + $array /a array= i i 1 + = )^ $array } ??
+} ;
+```
+
+Store the function in a variable, F, and call it:
+
+```Monty
+:fibonacci { $n 2 < { [0 1] } { [0 1] $n 2 - i= ( $array $i 1% $array $i 2% + $array /a array= i i 1 + = )^ $array } ?? } ; F=
+```
+
+Let's call this function with an input value of 10 to generate the first 10 numbers in the Fibonacci sequence:
+
+```Monty
+10 F^ .
+```
+
+This should return [0, 1, 1, 2, 3, 5, 8, 13, 21, 34].
+
+Explanation:
+
+1. The command `:fibonacci` defines a function named "fibonacci".
+
+2. Inside the function, we have an if-else structure (denoted by `??`) that checks if the input number n (accessed by `$n`) is less than 2.
+
+3. If it is, it returns an array with the first two numbers of the Fibonacci sequence, [0, 1].
+
+4. If it's not less than 2, it initializes an array with [0, 1] and initializes a counter i with the value of n-2. 
+
+5. Then, it enters a loop (denoted by `()`), which is run by `^`, and executes the code block inside it n-2 times.
+
+6. In each iteration of the loop, it calculates the next number in the Fibonacci sequence by adding the last two numbers in the array (accessed by `$array $i 1%` and `$array $i 2%`), appends it to the array with `$array /a`, and increments the counter i by 1.
+
+7. Finally, it returns the array with the first n numbers in the Fibonacci sequence.
+
+8. The function is stored in the variable F with `F=`.
+
+9. Finally, the function is called with an input of 10 using `10 F^ .`.
+
+Remember, all the steps are executed in reverse Polish notation, where operators follow their operands.
+
+## Merge two sorted arrays into a sorted array. 
+This is a common task in many algorithms such as mergesort.
+
+Here's the function that performs the merge operation:
+
+```Monty
+:merge {
+  $array1 $array2 $array1_size $array2_size
+  $i $j $k 0 =
+  ( 
+    $i $array1_size < $j $array2_size < && 
+    { 
+      $array1 $i% $array2 $j% <=
+      { $array1 $i% $result_array $k /a = i i 1 + = }
+      { $array2 $j% $result_array $k /a = j j 1 + = }
+      ??
+      k k 1 + =
+    }
+    $i $array1_size < 
+    { 
+      $array1 $i% $result_array $k /a = i i 1 + = k k 1 + =
+    } 
+    ?
+    $j $array2_size < 
+    { 
+      $array2 $j% $result_array $k /a = j j 1 + = k k 1 + =
+    } 
+    ?
+    $i $array1_size >= $j $array2_size >= && /br 
+  )^ 
+  $result_array
+} ; 
+```
+
+Here's how we can store it in a variable M and call it:
+
+```Monty
+:merge { $array1 $array2 $array1_size $array2_size $i $j $k 0 = ( $i $array1_size < $j $array2_size < && { $array1 $i% $array2 $j% <= { $array1 $i% $result_array $k /a = i i 1 + = } { $array2 $j% $result_array $k /a = j j 1 + = } ?? k k 1 + = } $i $array1_size < { $array1 $i% $result_array $k /a = i i 1 + = k k 1 + = } ? $j $array2_size < { $array2 $j% $result_array $k /a = j j 1 + = k k 1 + = } ? $i $array1_size >= $j $array2_size >= && /br )^ $result_array } ; M=
+```
+
+To call this function with two arrays [1, 3, 5] and [2, 4, 6], we do:
+
+```Monty
+[1 3 5] array1= 3 array1_size= [2 4 6] array2= 3 array2_size= M^ .
+```
+
+This should return [1, 2, 3, 4, 5, 6].
+
+Explanation:
+
+1. The command `:merge` defines a function named "merge".
+2. Inside the function, we initialize i, j, and k to 0. These will be used as indexes for array1, array2, and result_array respectively.
+3. We then start a loop `( )^`, which continues until both i and j are not less than their respective array sizes (`$i $array1_size >= $j $array2_size >= && /br`).
+4. Inside the loop, we first check if the current elements of array1 and array2 are both less than their respective sizes. If they are, we compare the current elements of array1 and array2. If the current element of array1 is less than or equal to the current element of array2, we append it to result_array and increment i and k. Otherwise, we append the current element of array2 to result_array and increment j and k.
+5. We then check if i is less than array1_size. If it is, we append the current element of array1 to result_array and increment i and k.
+6. Similarly, we check if j is less than array2_size. If it is, we append the current element of array2 to result_array and increment j and k.
+7. Once the loop ends, we return result_array, which is a sorted array that contains all the elements of array1 and array2.
+
+## QuickSort algorithm 
+QuickSort is an efficient sorting algorithm that uses a divide and conquer strategy. Given an array, it partitions the array around a pivot element, sorting values around the pivot, and then recursively applies the algorithm to the sub-arrays.
+
+First, let's define a helper function `swap` to exchange elements in an array:
+
+```Monty
+:swap {
+  $array $i $j
+  $array $i% $temp =
+  $array $j% $array $i /a =
+  $temp $array $j /a =
+} ; S=
+```
+
+Now, let's define the `partition` function, another helper function that will help to split the array around the pivot:
+
+```Monty
+:partition {
+  $array $low $high
+  $array $high% $pivot =
+  $low $i =
+  $low $high < {
+    $array $high% <= {
+      $array $i $array $high /swap^
+      i i 1 + =
+    }
+    high high 1 + =
+  } ?
+  $array $i $array $high /swap^
+  $i
+} ; P=
+```
+
+Finally, the QuickSort function itself:
+
+```Monty
+:quickSort {
+  $array $low $high
+  $low $high <= {
+    $array $low $high /partition^ $pi =
+    $array $low $pi 1 - /quickSort^
+    $array $pi 1 + $high /quickSort^
+  } ?
+} ; Q=
+```
+
+To call QuickSort on an array `[10, 7, 8, 9, 1, 5]`, we would do:
+
+```Monty
+[10, 7, 8, 9, 1, 5] array= 0 array_size= array 0 array_size 1 - Q^ .
+```
+
+This should return `[1, 5, 7, 8, 9, 10]`.
+
+Explanation:
+
+1. The `swap` function is a simple utility that swaps elements at indices i and j in an array.
+
+2. The `partition` function takes in an array and two indices, low and high. It partitions the elements in the array around the pivot element (the element at the high index), so that all elements less than the pivot come before all elements greater than the pivot. It returns the index of the pivot in the partitioned array.
+
+3. The `quickSort` function takes in an array and two indices, low and high. It uses the `partition` function to partition the array around a pivot, and then recursively calls itself on the two halves of the array (the elements before the pivot and the elements after the pivot).
+
+This is one of the most complex examples you might encounter, and it showcases the potential of the Monty programming language.
+
+ 
