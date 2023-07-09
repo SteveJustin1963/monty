@@ -2,54 +2,18 @@
 
 https://github.com/jhlagado/monty/tree/main
 
+# User Guide for MONTY Programming Language
+
 ## Monty: An Intuitive and Readable Reverse Polish Notation (RPN) Language
-Monty is an ongoing project, conceptualized as a solution to overcome perceived limitations in Mint. A reverse polish notation (RPN) based language like Mint, Monty sets itself apart by prioritizing readability. Monty leverages intuitive symbols for operations, commonly following the conventions of the C programming language, which significantly enhances code comprehensibility.
+This guide presents a comprehensive overview of the commands and operators available in the MONTY programming language. MONTY is designed to be user-friendly, employing a Reverse Polish Notation (RPN) approach. It incorporates familiar symbols and follows conventions from the C programming language when applicable. Monty is an ongoing project, conceptualized as a solution to overcome perceived limitations in Mint. A reverse polish notation (RPN) based language like Mint, Monty sets itself apart by prioritizing readability. Monty leverages intuitive symbols for operations, commonly following the conventions of the C programming language, which significantly enhances code comprehensibility.
 
 
-# User Guide for MONTY Programming Language
-
-## Introduction
-
-This guide covers the range of commands and operators. These commands provide functionality for variable manipulation, logical operations, mathematical computations, bitwise operations, conditional execution, string manipulation, and more.
-Between the quotes `"` is the input and after the comma `,` is the result placed on the stack which an be shown with `.`.
-
-## Commands and Operators
-
-
-### Functions 
-Commands in Monty are known as functions. Users pass values to functions by name, similar to the C programming language. For example, you can define a function a that squares a value in the following manner:
-
-```
-> :a { $a $a * } ;
-```
-This function can be stored in a variable and invoked using ^.
-
-```
-> :a { $a $a * } ; F=
-> 10 F^ .
-100
-```
-
-### Variables
-Monty accommodates 52 variables, ranging from A to Z and a to z. These variables can hold any type of values, including functions, numbers, and arrays. To assign a value to a variable, you use the = symbol.
-
-```
-> 10 x=
-> 3 x + .
-13
-```
-
-# User Guide for MONTY Programming Language
-
-## Introduction
-
-This guide provides a comprehensive overview of the commands and operators available in MONTY, a user-friendly Reverse Polish Notation (RPN) based programming language. MONTY aims to combine readability with familiar symbols and follows conventions from the C programming language whenever possible.
 
 ## Functions and Variables
 
-MONTY allows you to define functions using the `:` operator, eliminating the need for explicit variable assignment. These functions are anonymous, meaning they don't require a specific name. However, if you know the function's address, you can execute it using the `^` operator.
+MONTY allows the definition of functions using the `:` operator, eliminating the need for explicit variable assignment. These functions are anonymous, meaning they do not require specific names. However, if you know the function's address, you can execute it using the `^` operator.
 
-To define a function, use the `:` operator followed by lowercase letters (a..z) representing the function arguments. These arguments are separate from global variables and can be accessed within the function body by prefixing them with `$`.
+To define a function, use the `:` operator followed by lowercase letters (a..z) representing the function arguments. These arguments are distinct from global variables and can be accessed within the function body by prefixing them with `$`.
 
 Example:
 ```
@@ -88,8 +52,7 @@ To calculate the value of `f(x)` for specific `m`, `c`, and `x` values, pass the
 ```
 
 
-
-//////////////////////////
+ 
 ### Blocks and Conditional Structures in Monty
 In Monty, blocks of code enclosed within { } are executed later with ^. For example:
 
