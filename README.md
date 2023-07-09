@@ -835,6 +835,6 @@ Explanation:
 
 3. The `quickSort` function takes in an array and two indices, low and high. It uses the `partition` function to partition the array around a pivot, and then recursively calls itself on the two halves of the array (the elements before the pivot and the elements after the pivot).
 
-This is one of the most complex examples you might encounter, and it showcases the potential of the Monty programming language.
+ 
 
  
